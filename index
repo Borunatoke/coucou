@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Cadre LED Cyan doux</title>
+  <title>coucou</title>
   <style>
     body {
       margin: 0;
@@ -11,6 +11,17 @@
       background-color: #000;
       overflow: hidden;
       position: relative;
+
+      --mouse-x: 50vw;
+      --mouse-y: 50vh;
+
+      background:
+        radial-gradient(circle 200px at var(--mouse-x) var(--mouse-y),
+          rgba(0, 255, 255, 0.1),
+          transparent 100%),
+        #000;
+
+      transition: background 0.1s ease;
     }
 
     .led-border {
@@ -64,5 +75,12 @@
   <div class="led-border bottom"></div>
   <div class="led-border left"></div>
   <div class="led-border right"></div>
+
+  <script>
+    document.body.addEventListener('mousemove', e => {
+      document.body.style.setProperty('--mouse-x', e.clientX + 'px');
+      document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+    });
+  </script>
 </body>
 </html>
